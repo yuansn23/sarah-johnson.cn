@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Dr. Sarah Johnson · Anti-Aging Dermatology</title>
+<meta name="description" content="Board-certified dermatologist specializing in anti-aging. 15+ years clinical experience. UCLA Medical Center. Evidence-based, non-invasive skin rejuvenation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════ DESIGN TOKENS ═══════════════ */
+:root{
+  --teal-900:#0B2B35;--teal-800:#123C48;--teal-700:#1A4F5E;--teal-50:#E8F0F2;
+  --gold:#C49B6C;--gold-light:#E8D5B0;--gold-pale:#F5EDE0;
+  --cream:#F7F4F0;--ivory:#FAF8F6;--charcoal:#1A1A1A;
+  --gray-700:#4A4A4A;--gray-500:#7A7A7A;--gray-300:#B8B8B8;--gray-100:#E8E8E8;
+  --white:#FFFFFF;--success:#3A7D5C;
+  --shadow-sm:0 2px 8px rgba(11,43,53,.06);--shadow-md:0 8px 32px rgba(11,43,53,.08);
+  --shadow-lg:0 20px 60px rgba(11,43,53,.12);--shadow-xl:0 32px 80px rgba(11,43,53,.15);
+  --radius:16px;--radius-sm:8px;--radius-xl:24px;
+  --font-serif:'Playfair Display',Georgia,serif;
+  --font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --max-w:1200px;--nav-h:64px;
+  --section-pad:40px;--container-pad:20px;--card-pad:20px;
+}
+@media(min-width:480px){:root{--container-pad:28px;--card-pad:24px}}
+@media(min-width:768px){:root{--nav-h:76px;--section-pad:56px;--container-pad:32px;--card-pad:32px}}
+@media(min-width:1024px){:root{--nav-h:80px;--section-pad:40px;--card-pad:36px}}
+
+/* ═══════════════ RESET & GLOBAL FONTS (常规字体) ═══════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+body{
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size:15px;
+  line-height:1.7;
+  color:var(--charcoal);
+  background:var(--ivory);
+  overflow-x:hidden;
+  -webkit-overflow-scrolling:touch
+}
+@media(min-width:768px){body{font-size:16px}}
+img{max-width:100%;height:auto;display:block}a{color:inherit;text-decoration:none}button,input{font:inherit}
+.container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--container-pad)}
+
+/* ═══════════════ TYPOGRAPHY (仅标题保留衬线，正文常规) ═══════════════ */
+h1,h2,h3,h4{font-family:var(--font-serif);font-weight:600;line-height:1.2;letter-spacing:-.015em}
+h1{font-size:clamp(1.75rem,5.5vw,3.8rem)}
+h2{font-size:clamp(1.5rem,4vw,3.2rem)}
+h3{font-size:clamp(1.15rem,2.2vw,1.5rem)}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-family:system-ui, -apple-system, 'Segoe UI', sans-serif;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);margin-bottom:.75rem}
+@media(min-width:768px){.section-label{margin-bottom:1rem}}
+.section-label::before{content:'';display:block;width:20px;height:1px;background:var(--gold);flex-shrink:0}
+@media(min-width:768px){.section-label::before{width:24px}}
+.section-title{margin-bottom:.8rem;color:var(--teal-900);letter-spacing:-.02em}
+@media(min-width:768px){.section-title{margin-bottom:1.2rem}}
+.section-subtitle{font-size:.92rem;color:var(--gray-500);line-height:1.75;max-width:540px}
+@media(min-width:768px){.section-subtitle{font-size:1rem}}
+.text-center{text-align:center}
+.text-center .section-subtitle{margin:0 auto}.text-center .section-label::before{display:none}
+
+/* ═══════════════ BUTTONS ═══════════════ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;font-family:system-ui, -apple-system, 'Segoe UI', sans-serif;font-size:.85rem;font-weight:600;border-radius:100px;border:none;cursor:pointer;min-height:44px;transition:all .35s cubic-bezier(.22,1,.36,1)}
+@media(min-width:768px){.btn{padding:14px 32px;font-size:.88rem;gap:10px}}
+.btn-primary{background:var(--teal-900);color:var(--white)}
+.btn-primary:hover{background:var(--teal-800);transform:translateY(-2px);box-shadow:0 8px 24px rgba(11,43,53,.25)}
+.btn-secondary{background:transparent;color:var(--teal-900);border:1.5px solid rgba(11,43,53,.15)}
+.btn-secondary:hover{border-color:var(--teal-900);background:rgba(11,43,53,.03);transform:translateY(-2px)}
+.btn-light{background:var(--white);color:var(--teal-900)}
+.btn-light:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.btn-outline-light{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.25)}
+.btn-outline-light:hover{border-color:var(--white);background:rgba(255,255,255,.06);transform:translateY(-2px)}
+
+/* ═══════════════ NAV ═══════════════ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;transition:all .4s ease}
+.nav.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.nav .container{display:flex;align-items:center;justify-content:space-between}
+.nav-brand{display:flex;align-items:center;gap:8px;font-family:var(--font-serif);font-size:.95rem;color:var(--white);font-weight:600;letter-spacing:-.02em;transition:color .3s;z-index:1002;position:relative;overflow:hidden;white-space:nowrap;max-width:55vw}
+@media(min-width:480px){.nav-brand{font-size:1rem;gap:10px;max-width:none}}
+@media(min-width:768px){.nav-brand{font-size:1.2rem}}
+.nav.scrolled .nav-brand{color:var(--teal-900)}
+.nav-brand-icon{width:32px;height:32px;border-radius:50%;background:var(--gold);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:.65rem;font-weight:700;flex-shrink:0}
+.nav-links{display:flex;align-items:center;gap:20px;list-style:none}@media(min-width:1024px){.nav-links{gap:28px}}
+.nav-links a{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.7);transition:color .3s;position:relative;white-space:nowrap}
+.nav.scrolled .nav-links a{color:var(--gray-700)}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1.5px;background:var(--gold);transition:width .3s ease}
+.nav-links a:hover{color:var(--white)}.nav.scrolled .nav-links a:hover{color:var(--teal-900)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{padding:9px 20px!important;background:var(--gold)!important;color:var(--teal-900)!important;border-radius:100px;font-weight:600!important;transition:all .3s!important}
+.nav-cta::after{display:none!important}.nav-cta:hover{background:var(--gold-light)!important;transform:translateY(-1px)}
+.mobile-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;min-width:44px;min-height:44px;position:relative;z-index:1002}
+.mobile-btn span{display:block;width:20px;height:2px;border-radius:2px;background:var(--white);transition:all .35s ease;transform-origin:center}
+.nav.scrolled .mobile-btn span{background:var(--teal-900)}
+.mobile-btn.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.mobile-btn.active span:nth-child(2){opacity:0;transform:scaleX(0)}
+.mobile-btn.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav.scrolled .mobile-btn.active span{background:var(--teal-900)}
+@media(min-width:769px){.mobile-btn{display:none}}
+.nav-overlay{position:fixed;inset:0;z-index:-1;background:rgba(11,43,53,.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);opacity:0;visibility:hidden;transition:all .4s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.nav-overlay.open{opacity:1;visibility:visible;z-index:1001}
+.nav-overlay ul{list-style:none;text-align:center;display:flex;flex-direction:column;gap:8px}
+.nav-overlay ul li a{display:block;padding:14px 28px;min-height:44px;font-family:var(--font-serif);font-size:1.4rem;color:rgba(255,255,255,.7);transition:color .3s;font-weight:500}
+.nav-overlay ul li a:hover{color:var(--white)}
+.nav-overlay-cta{display:inline-block;margin-top:24px;padding:14px 40px;background:var(--gold);color:var(--teal-900);border-radius:100px;font-weight:600;font-size:.95rem}
+.nav-overlay-footer{position:absolute;bottom:40px;text-align:center;color:rgba(255,255,255,.3);font-size:.75rem}
+@media(max-width:768px){body.menu-open{overflow:hidden}}
+
+/* ═══════════════ HERO ═══════════════ */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:center;background:var(--teal-900);overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 50% at 70% 20%, rgba(196,155,108,.08), transparent),radial-gradient(ellipse 80% 60% at 30% 80%, rgba(11,43,53,.5), transparent),linear-gradient(180deg, var(--teal-900) 0%, #0A2028 50%, var(--teal-800) 100%);pointer-events:none}
+@media(min-width:768px){.hero::before{background:radial-gradient(ellipse 80% 60% at 70% 20%, rgba(196,155,108,.08), transparent),radial-gradient(ellipse 60% 80% at 30% 70%, rgba(11,43,53,.4), transparent),linear-gradient(135deg, var(--teal-900) 0%, #0A2028 50%, var(--teal-800) 100%)}}
+.hero-pattern{position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:.03}
+.hero-pattern span{position:absolute;font-family:var(--font-serif);font-size:clamp(12rem,30vw,24rem);font-weight:700;color:var(--gold);line-height:1;top:-5%;right:-10%;opacity:.04}
+.hero .container{position:relative;z-index:2;display:grid;gap:28px;align-items:center;padding-top:calc(var(--nav-h) + 16px);padding-bottom:40px}
+@media(min-width:768px){.hero .container{grid-template-columns:1fr 1fr;gap:40px;padding-bottom:0}}@media(min-width:1024px){.hero .container{gap:60px;padding-top:var(--nav-h)}}
+.hero .hero-image-wrap{order:-1;position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);max-height:400px}
+@media(min-width:768px){.hero .hero-image-wrap{order:0;border-radius:var(--radius-xl);max-height:none;transform:perspective(1200px) rotateY(-2deg);transition:transform .8s cubic-bezier(.22,1,.36,1)}.hero .hero-image-wrap:hover{transform:perspective(1200px) rotateY(0deg)}}
+.hero .hero-image-wrap img{width:100%;height:340px;object-fit:cover}
+@media(min-width:480px){.hero .hero-image-wrap img{height:400px}}@media(min-width:768px){.hero .hero-image-wrap img{height:560px;transition:transform .8s ease}.hero .hero-image-wrap:hover img{transform:scale(1.02)}}@media(min-width:1024px){.hero .hero-image-wrap img{height:600px}}
+.hero-image-badge{position:absolute;bottom:16px;left:16px;display:flex;align-items:center;gap:8px;background:rgba(0,0,0,.45);backdrop-filter:blur(12px);padding:8px 14px;border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,.1)}
+@media(min-width:768px){.hero-image-badge{bottom:24px;left:24px;padding:12px 18px}}
+.hero-image-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--success);animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(58,125,92,.4)}50%{opacity:.7;box-shadow:0 0 0 6px rgba(58,125,92,0)}}
+.hero-image-badge span{color:var(--white);font-size:.7rem;font-weight:500}@media(min-width:768px){.hero-image-badge span{font-size:.75rem}}
+.hero-badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem}@media(min-width:768px){.hero-badges{gap:8px;margin-bottom:1.5rem}}
+.hero-badge-pill{padding:4px 12px;border-radius:100px;font-size:.65rem;font-weight:600;letter-spacing:.03em;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.8)}
+@media(min-width:768px){.hero-badge-pill{padding:5px 14px;font-size:.68rem}}
+.hero-badge-pill.gold{background:rgba(196,155,108,.15);border-color:rgba(196,155,108,.25);color:var(--gold-light)}
+.hero h1{color:var(--white);margin-bottom:.5rem;line-height:1.08}
+.hero h1 .gold{color:var(--gold)}
+.hero-sub{font-size:.82rem;color:rgba(255,255,255,.55);margin-bottom:1.2rem;line-height:1.7}
+@media(min-width:768px){.hero-sub{font-size:.88rem;margin-bottom:1.4rem}}
+.hero-sub strong{color:rgba(255,255,255,.8);font-weight:500}
+.hero-quote{position:relative;padding:1rem 1.2rem;margin-bottom:1.4rem;background:rgba(255,255,255,.04);border-left:2px solid var(--gold);border-radius:0 var(--radius-sm) var(--radius-sm) 0}
+@media(min-width:768px){.hero-quote{padding:1.4rem 1.8rem;margin-bottom:1.8rem}}
+.hero-quote p{font-family:var(--font-serif);font-style:italic;font-size:.88rem;line-height:1.75;color:rgba(255,255,255,.75)}@media(min-width:768px){.hero-quote p{font-size:.98rem}}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}@media(min-width:480px){.hero-actions{gap:14px}}
+.hero-trust-row{display:flex;gap:12px;margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.06);flex-wrap:wrap}
+@media(min-width:768px){.hero-trust-row{gap:24px;margin-top:1.8rem;padding-top:1.6rem}}
+.hero-trust-item{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;color:rgba(255,255,255,.45)}
+@media(min-width:480px){.hero-trust-item{font-size:.76rem;gap:7px}}@media(min-width:768px){.hero-trust-item{font-size:.78rem}}
+.hero-trust-item svg{width:12px;height:12px;flex-shrink:0;color:var(--gold)}@media(min-width:768px){.hero-trust-item svg{width:14px;height:14px}}
+
+/* ═══════════════ CREDENTIALS ═══════════════ */
+.credentials-bar{padding:18px 0;background:var(--cream);border-bottom:1px solid var(--gray-100);overflow:hidden;width:100%}
+@media(min-width:768px){.credentials-bar{padding:28px 0}}
+.credentials-track{display:flex;align-items:center;gap:32px;animation:scroll-cred 24s linear infinite;width:max-content;padding-left:16px}
+@media(min-width:768px){.credentials-track{gap:48px;padding-left:0}}
+.credentials-track-item{display:flex;align-items:center;gap:8px;flex-shrink:0;font-size:.72rem;color:var(--gray-500);font-weight:500;white-space:nowrap}
+@media(min-width:768px){.credentials-track-item{font-size:.78rem;gap:10px}}
+.credentials-track-item svg{width:15px;height:15px;color:var(--gold);flex-shrink:0}@media(min-width:768px){.credentials-track-item svg{width:18px;height:18px}}
+@keyframes scroll-cred{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+section{padding:var(--section-pad) 0}
+.section-header{margin-bottom:clamp(20px,2.5vw,32px)}
+
+/* ═══════════════ EXPERTISE ═══════════════ */
+.expertise{background:var(--ivory)}
+.expertise-grid{display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
+@media(min-width:768px){.expertise-grid{grid-template-columns:1fr 1fr;gap:40px}}@media(min-width:1024px){.expertise-grid{gap:60px}}
+.expertise-visual{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px;order:-1}@media(min-width:768px){.expertise-visual{order:0;gap:16px}}
+.expertise-visual-main{grid-column:1/-1;border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:16/10}
+@media(min-width:768px){.expertise-visual-main{border-radius:var(--radius);aspect-ratio:16/9}}
+.expertise-visual-main img{width:100%;height:100%;object-fit:cover}
+.expertise-visual-sub{border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow-sm);aspect-ratio:4/3}
+.expertise-visual-sub img{width:100%;height:100%;object-fit:cover}
+.expertise-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}@media(min-width:768px){.expertise-stats{gap:16px;margin-top:28px}}
+.expertise-stat{text-align:center;padding:12px 8px;background:var(--cream);border-radius:var(--radius-sm)}@media(min-width:768px){.expertise-stat{padding:16px}}
+.expertise-stat-num{font-family:var(--font-serif);font-size:1.4rem;font-weight:700;color:var(--teal-900);line-height:1}@media(min-width:768px){.expertise-stat-num{font-size:1.8rem}}
+.expertise-stat-label{font-size:.68rem;color:var(--gray-500);margin-top:3px}@media(min-width:768px){.expertise-stat-label{font-size:.72rem;margin-top:4px}}
+.expertise-list{list-style:none;display:flex;flex-direction:column;gap:12px}@media(min-width:768px){.expertise-list{gap:16px}}
+.expertise-item{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--white);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s}
+@media(min-width:768px){.expertise-item{padding:18px 20px;gap:16px}}
+.expertise-item:active{transform:translateX(4px)}.expertise-item:hover{transform:translateX(6px);box-shadow:var(--shadow-md)}
+.expertise-item-icon{width:34px;height:34px;border-radius:50%;background:var(--gold-pale);color:var(--gold);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+@media(min-width:768px){.expertise-item-icon{width:38px;height:38px;font-size:.9rem}}
+.expertise-item h4{font-family:system-ui, -apple-system, 'Segoe UI', sans-serif;font-weight:600;font-size:.85rem;margin-bottom:2px}@media(min-width:768px){.expertise-item h4{font-size:.9rem}}
+.expertise-item p{font-size:.8rem;color:var(--gray-500);line-height:1.55}@media(min-width:768px){.expertise-item p{font-size:.82rem;line-height:1.6}}
+
+/* ═══════════════ PRODUCTS (from introduce.txt) ═══════════════ */
+.products{background:var(--cream);position:relative;overflow:hidden}
+.products::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold-light),transparent)}
+.products-grid{display:grid;grid-template-columns:1fr;gap:28px}
+@media(min-width:768px){.products-grid{grid-template-columns:1fr 1fr;gap:32px}}@media(min-width:1024px){.products-grid{gap:40px}}
+.product-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .45s cubic-bezier(.22,1,.36,1)}
+.product-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.product-card-image{width:100%;height:220px;object-fit:cover;display:block}
+@media(min-width:768px){.product-card-image{height:260px}}
+.product-card-body{padding:var(--card-pad)}
+.product-step{display:inline-flex;align-items:center;gap:6px;font-family:system-ui, -apple-system, 'Segoe UI', sans-serif;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:.5rem}
+.product-step::before{content:'';display:block;width:16px;height:1px;background:var(--gold)}
+.product-name{font-family:var(--font-serif);font-size:clamp(1.15rem,2vw,1.5rem);font-weight:600;color:var(--teal-900);margin-bottom:.5rem}
+.product-desc{font-size:.88rem;color:var(--gray-500);line-height:1.75;margin-bottom:1rem;border-bottom:1px solid var(--gray-100);padding-bottom:1rem}
+.product-ingredients-title{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--teal-800);margin-bottom:.75rem}
+.product-ingredients{list-style:none;display:grid;gap:6px}
+.product-ingredient{display:flex;align-items:flex-start;gap:10px;padding:7px 10px;background:var(--ivory);border-radius:6px;font-size:.8rem;line-height:1.5;color:var(--gray-700);transition:background .25s}
+.product-card:hover .product-ingredient{background:var(--cream)}
+.product-ingredient-icon{width:20px;height:20px;border-radius:50%;background:var(--teal-50);color:var(--teal-700);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.6rem;margin-top:2px}
+.product-ingredient strong{font-weight:600;color:var(--teal-900)}
+.product-cta{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:10px 24px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--teal-900);border-radius:100px;font-weight:600;font-size:.8rem;transition:all .3s;border:none;cursor:pointer}
+.product-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(196,155,108,.3)}
+
+/* ═══════════════ CASE STUDIES (card layout) - 数字强制常规字体 ═══════════════ */
+.cases{background:var(--ivory)}
+.cases-grid{display:grid;grid-template-columns:1fr;gap:24px}
+@media(min-width:768px){.cases-grid{gap:36px}}@media(min-width:1024px){.cases-grid{gap:40px}}
+.case-card{display:grid;grid-template-columns:1fr;background:var(--white);border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow-sm);transition:box-shadow .4s}
+@media(min-width:768px){.case-card{border-radius:var(--radius);grid-template-columns:1fr 1fr}}.case-card:hover{box-shadow:var(--shadow-lg)}
+.case-media{position:relative;min-height:240px;background:var(--teal-900);overflow:hidden;cursor:pointer}
+@media(min-width:480px){.case-media{min-height:300px}}@media(min-width:768px){.case-media{min-height:380px}}
+.case-media-bg{position:absolute;inset:0}
+.case-media-bg img{width:100%;height:100%;object-fit:cover;opacity:.5}
+.case-media-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1;color:var(--white);background:rgba(11,43,53,.2);transition:background .4s}
+.case-card:hover .case-media-overlay{background:rgba(11,43,53,.35)}
+.case-play-btn{width:56px;height:56px;border-radius:50%;border:2px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-size:1.15rem;margin-bottom:10px;transition:all .4s;position:relative}
+@media(min-width:768px){.case-play-btn{width:64px;height:64px;font-size:1.3rem;margin-bottom:14px}}
+.case-play-btn::before{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(255,255,255,.1);animation:ripple-pulse 2.5s ease-out infinite}
+@keyframes ripple-pulse{0%{transform:scale(1);opacity:1}100%{transform:scale(1.3);opacity:0}}
+.case-card:hover .case-play-btn{border-color:var(--gold);background:rgba(196,155,108,.15);transform:scale(1.05)}
+.case-play-label{font-size:.72rem;font-weight:500;opacity:.8}@media(min-width:768px){.case-play-label{font-size:.78rem}}
+.case-duration{position:absolute;bottom:12px;right:12px;z-index:2;background:rgba(0,0,0,.5);color:var(--white);font-size:.65rem;padding:2px 8px;border-radius:4px;font-weight:500}
+@media(min-width:768px){.case-duration{bottom:16px;right:16px;font-size:.7rem;padding:3px 10px}}
+.case-photo-grid{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:0}
+.case-photo-grid .photo{position:relative;overflow:hidden}
+.case-photo-grid .photo img{width:100%;height:100%;object-fit:cover}
+.case-photo-grid .label{position:absolute;bottom:10px;font-size:.62rem;font-weight:600;padding:2px 8px;border-radius:3px;text-transform:uppercase;letter-spacing:.05em}
+@media(min-width:768px){.case-photo-grid .label{bottom:12px;font-size:.68rem;padding:3px 10px;border-radius:4px}}
+.case-photo-grid .label.before{left:10px;background:rgba(0,0,0,.5);color:var(--white)}@media(min-width:768px){.case-photo-grid .label.before{left:12px}}
+.case-photo-grid .label.after{right:10px;background:var(--success);color:var(--white)}@media(min-width:768px){.case-photo-grid .label.after{right:12px}}
+.case-body{padding:var(--card-pad);display:flex;flex-direction:column;justify-content:center}
+.case-patient{display:flex;align-items:center;gap:10px;margin-bottom:8px}@media(min-width:768px){.case-patient{gap:12px;margin-bottom:10px}}
+.case-patient-name{font-weight:600;font-size:.85rem}@media(min-width:768px){.case-patient-name{font-size:.9rem}}
+.case-patient-meta{font-size:.72rem;color:var(--gray-500)}
+.case-tag{display:inline-block;padding:3px 9px;margin-bottom:10px;background:var(--gold-pale);color:var(--gray-700);font-size:.7rem;font-weight:500;border-radius:4px}
+@media(min-width:768px){.case-tag{padding:4px 11px;margin-bottom:12px;font-size:.73rem}}
+.case-quote{font-family:var(--font-serif);font-style:italic;font-size:.88rem;line-height:1.75;color:var(--gray-500);margin-bottom:14px}
+@media(min-width:768px){.case-quote{font-size:.92rem;line-height:1.85;margin-bottom:16px}}
+.case-results{display:flex;gap:18px;padding-top:12px;border-top:1px solid var(--gray-100);flex-wrap:wrap}
+@media(min-width:768px){.case-results{gap:28px;padding-top:16px;flex-wrap:nowrap}}
+/* 强制数字使用常规字体 */
+.case-result-value {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--teal-900);
+}
+@media(min-width:768px){.case-result-value{font-size:1.2rem}}
+.case-result-label{font-size:.68rem;color:var(--gray-500);margin-top:1px}
+
+/* ═══════════════ TESTIMONIALS ═══════════════ */
+.testimonials{background:var(--white);position:relative;overflow:hidden}
+.testimonials::before{content:'"';position:absolute;top:-40px;left:-20px;font-family:var(--font-serif);font-size:20rem;font-weight:700;color:var(--teal-50);line-height:1;pointer-events:none;opacity:.3}
+@media(min-width:768px){.testimonials::before{top:-80px;left:-40px;font-size:40rem}}
+.testimonials-grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.testimonials-grid{grid-template-columns:repeat(2,1fr)}}@media(min-width:1024px){.testimonials-grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}}
+.t-card{background:var(--ivory);border-radius:var(--radius-sm);padding:22px 22px 20px;transition:all .4s cubic-bezier(.22,1,.36,1);position:relative;isolation:isolate}
+@media(min-width:768px){.t-card{border-radius:var(--radius);padding:28px 28px 24px}}
+.t-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);background:var(--white)}
+.t-card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;gap:10px}@media(min-width:768px){.t-card-header{margin-bottom:14px}}
+.t-card-avatar{display:flex;align-items:center;gap:10px;min-width:0}@media(min-width:768px){.t-card-avatar{gap:12px}}
+.t-card-avatar-fig{width:38px;height:38px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid transparent;transition:border-color .3s}@media(min-width:768px){.t-card-avatar-fig{width:42px;height:42px}}
+.t-card:hover .t-card-avatar-fig{border-color:var(--gold-light)}
+.t-card-avatar-fig img{width:100%;height:100%;object-fit:cover}
+.t-card-name{font-weight:600;font-size:.82rem;line-height:1.3;word-break:break-word}@media(min-width:768px){.t-card-name{font-size:.85rem}}
+.t-card-meta{font-size:.68rem;color:var(--gray-500)}
+.t-card-stars{display:flex;gap:2px;flex-shrink:0}
+.t-card-stars svg{width:12px;height:12px;fill:#D4A843;color:#D4A843}@media(min-width:768px){.t-card-stars svg{width:13px;height:13px}}
+.t-card-text{font-size:.82rem;line-height:1.75;color:var(--gray-500);margin-bottom:12px}
+@media(min-width:768px){.t-card-text{font-size:.86rem;line-height:1.8;margin-bottom:14px}}
+.t-card-text::before{content:'"';color:var(--gold);font-family:var(--font-serif)}
+.t-card-text::after{content:'"';color:var(--gold);font-family:var(--font-serif)}
+.t-card-footer{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding-top:12px;border-top:1px solid var(--gray-100)}@media(min-width:768px){.t-card-footer{gap:10px;padding-top:14px}}
+.t-card-verified{display:inline-flex;align-items:center;gap:4px;font-size:.65rem;color:var(--success);font-weight:500}@media(min-width:768px){.t-card-verified{font-size:.68rem}}
+.t-card-verified svg{width:11px;height:11px}@media(min-width:768px){.t-card-verified svg{width:12px;height:12px}}
+
+/* ═══════════════ PROCESS ═══════════════ */
+.process{background:var(--ivory)}
+.process-grid{display:grid;grid-template-columns:1fr;gap:28px;position:relative;max-width:380px;margin:0 auto}
+@media(min-width:640px){.process-grid{grid-template-columns:repeat(2,1fr);max-width:none;gap:24px}}@media(min-width:1024px){.process-grid{grid-template-columns:repeat(4,1fr);gap:24px}}
+@media(min-width:1024px){.process-grid::before{content:'';position:absolute;top:34px;left:10%;right:10%;height:2px;background:linear-gradient(to right,var(--gold),var(--teal-50))}}
+.process-card{text-align:center;position:relative}
+.process-num{width:50px;height:50px;margin:0 auto 16px;border-radius:50%;background:var(--white);border:2px solid var(--teal-900);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;font-family:var(--font-serif);font-size:1rem;font-weight:600;color:var(--teal-900);transition:all .4s}
+@media(min-width:768px){.process-num{width:56px;height:56px;font-size:1.1rem;margin:0 auto 20px}}
+.process-card:active .process-num,.process-card:hover .process-num{background:var(--teal-900);color:var(--white);transform:scale(1.08)}
+.process-card h4{font-family:system-ui, -apple-system, 'Segoe UI', sans-serif;font-weight:600;font-size:.85rem;margin-bottom:5px;color:var(--teal-900)}@media(min-width:768px){.process-card h4{font-size:.9rem;margin-bottom:6px}}
+.process-card p{font-size:.8rem;color:var(--gray-500);line-height:1.65;max-width:260px;margin:0 auto}@media(min-width:768px){.process-card p{font-size:.82rem;line-height:1.65;max-width:220px}}
+.process-guarantee{margin-top:32px;padding:16px 20px;background:var(--white);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;gap:12px;box-shadow:var(--shadow-sm);flex-wrap:wrap;text-align:center}
+@media(min-width:768px){.process-guarantee{margin-top:44px;padding:20px 28px;border-radius:var(--radius);gap:14px;text-align:left;flex-wrap:nowrap;justify-content:center}}
+.process-guarantee svg{width:16px;height:16px;flex-shrink:0;color:var(--gold)}@media(min-width:768px){.process-guarantee svg{width:18px;height:18px}}
+.process-guarantee span{font-size:.82rem;color:var(--gray-700)}@media(min-width:768px){.process-guarantee span{font-size:.88rem}}
+
+/* ═══════════════ PRIVACY ═══════════════ */
+.privacy{background:var(--cream)}
+.privacy-grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
+@media(min-width:768px){.privacy-grid{grid-template-columns:1fr 1fr;gap:40px}}@media(min-width:1024px){.privacy-grid{gap:50px}}
+.privacy-media{position:relative;border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow-lg);order:-1}
+@media(min-width:768px){.privacy-media{border-radius:var(--radius);order:0}}
+.privacy-media img{width:100%;max-height:320px;object-fit:cover}@media(min-width:768px){.privacy-media img{max-height:none;min-height:400px}}
+.privacy-list{list-style:none;display:grid;gap:12px}@media(min-width:768px){.privacy-list{gap:16px}}
+.privacy-item{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--white);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);transition:transform .3s}@media(min-width:768px){.privacy-item{padding:18px 20px;gap:16px}}
+.privacy-item:active{transform:translateX(3px)}.privacy-item:hover{transform:translateX(4px)}
+.privacy-item-icon{width:34px;height:34px;border-radius:50%;background:var(--teal-50);color:var(--teal-700);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.85rem}@media(min-width:768px){.privacy-item-icon{width:38px;height:38px;font-size:.95rem}}
+.privacy-item h4{font-family:system-ui, -apple-system, 'Segoe UI', sans-serif;font-weight:600;font-size:.84rem;margin-bottom:2px}@media(min-width:768px){.privacy-item h4{font-size:.88rem}}
+.privacy-item p{font-size:.78rem;color:var(--gray-500);line-height:1.55}@media(min-width:768px){.privacy-item p{font-size:.8rem;line-height:1.6}}
+
+/* ═══════════════ CTA ═══════════════ */
+.cta-section{padding:50px 0;background:linear-gradient(180deg, var(--teal-900) 0%, #0A2028 50%, var(--teal-800) 100%);text-align:center;position:relative;overflow:hidden}
+@media(min-width:768px){.cta-section{padding:70px 0;background:linear-gradient(135deg, var(--teal-900) 0%, #0A2028 50%, var(--teal-800) 100%)}}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 40% at 50% 30%, rgba(196,155,108,.06), transparent 60%);pointer-events:none}
+@media(min-width:768px){.cta-section::before{background:radial-gradient(ellipse 70% 50% at 50% 30%, rgba(196,155,108,.06), transparent 60%)}}
+.cta-section .container{position:relative;z-index:1}
+.cta-section h1,.cta-section h2{color:var(--white);margin-bottom:.7rem}
+.cta-section p{font-size:.92rem;color:rgba(255,255,255,.65);margin-bottom:1.6rem;max-width:480px;margin-left:auto;margin-right:auto}@media(min-width:768px){.cta-section p{font-size:1rem;margin-bottom:2rem}}
+.cta-section .hero-actions{justify-content:center}
+.cta-disclaimer{margin-top:16px;font-size:.74rem;color:rgba(255,255,255,.35)}@media(min-width:768px){.cta-disclaimer{margin-top:18px;font-size:.78rem}}
+
+/* ═══════════════ FOOTER ═══════════════ */
+.footer{background:var(--teal-900);color:rgba(255,255,255,.5);padding:40px 0 24px}@media(min-width:768px){.footer{padding:50px 0 30px}}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:28px;margin-bottom:28px}@media(min-width:480px){.footer-grid{grid-template-columns:1fr 1fr}}@media(min-width:768px){.footer-grid{grid-template-columns:2fr 1fr;gap:40px;margin-bottom:32px}}
+.footer-brand h3{font-family:var(--font-serif);color:var(--white);font-size:1.1rem;margin-bottom:8px}@media(min-width:768px){.footer-brand h3{font-size:1.2rem;margin-bottom:10px}}
+.footer-brand p{font-size:.8rem;line-height:1.65;max-width:320px}@media(min-width:768px){.footer-brand p{font-size:.82rem;line-height:1.7}}
+.footer-col h4{font-family:system-ui, -apple-system, 'Segoe UI', sans-serif;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--white);margin-bottom:12px}@media(min-width:768px){.footer-col h4{font-size:.75rem;margin-bottom:14px}}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:6px}@media(min-width:768px){.footer-col ul{gap:7px}}
+.footer-col a{font-size:.8rem;transition:color .2s;display:inline-block;padding:2px 0}@media(min-width:768px){.footer-col a{font-size:.82rem}}.footer-col a:hover{color:var(--white)}
+.footer-bottom{padding-top:20px;border-top:1px solid rgba(255,255,255,.06);text-align:center;font-size:.74rem}@media(min-width:768px){.footer-bottom{padding-top:24px;font-size:.78rem}}
+
+/* ═══════════════ FLOATING CTA ═══════════════ */
+.float-cta{display:none;position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:999;padding:16px 40px;background:linear-gradient(135deg,var(--teal-900),var(--teal-700));color:var(--white);border:none;border-radius:100px;font-family:system-ui, -apple-system, 'Segoe UI', sans-serif;font-size:.95rem;font-weight:600;box-shadow:0 4px 24px rgba(11,43,53,.35);cursor:pointer;white-space:nowrap;min-height:52px;animation:float-breathe 2.4s ease-in-out infinite;transition:transform .3s ease,box-shadow .3s ease}
+.float-cta:active{transform:translateX(-50%) scale(.97)}
+@keyframes float-breathe{0%,100%{box-shadow:0 4px 24px rgba(11,43,53,.35);transform:translateX(-50%) scale(1)}50%{box-shadow:0 8px 40px rgba(11,43,53,.55),0 0 60px rgba(196,155,108,.15);transform:translateX(-50%) scale(1.03)}}
+@media(max-width:767px){.float-cta{display:flex;align-items:center;justify-content:center;gap:10px}}@media(min-width:480px){.float-cta{padding:16px 48px;font-size:1rem}}
+
+/* ═══════════════ 轮播图样式（图片完整显示 + 点击放大） ═══════════════ */
+.image-carousel-section {
+  background: var(--ivory);
+  overflow: hidden;
+}
+.carousel-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.carousel-wrapper {
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  background: #f0f0f0;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+.carousel-slide {
+  flex: 0 0 100%;
+  background: var(--white);
+}
+.carousel-slide-inner {
+  display: flex;
+  flex-direction: column;
+}
+.carousel-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.carousel-img:hover {
+  opacity: 0.9;
+}
+.carousel-content {
+  padding: 28px 28px 32px;
+  text-align: center;
+}
+.carousel-stars {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+.carousel-stars svg {
+  width: 18px;
+  height: 18px;
+  fill: #D4A843;
+  color: #D4A843;
+}
+.carousel-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--gray-600);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.carousel-author {
+  font-weight: 600;
+  color: var(--teal-900);
+  margin-bottom: 4px;
+}
+.carousel-meta {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(11,43,53,0.6);
+  backdrop-filter: blur(8px);
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 2;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.carousel-btn:hover {
+  background: var(--teal-900);
+  transform: translateY(-50%) scale(1.05);
+}
+.carousel-prev { left: 10px; }
+.carousel-next { right: 10px; }
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gray-300);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dot.active {
+  background: var(--gold);
+  width: 24px;
+  border-radius: 20px;
+}
+@media (min-width: 768px) {
+  .carousel-btn { width: 52px; height: 52px; font-size: 2.2rem; }
+  .carousel-prev { left: -20px; }
+  .carousel-next { right: -20px; }
+  .carousel-content { padding: 36px 40px; }
+}
+
+/* 图片放大模态框 */
+.image-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  backdrop-filter: blur(10px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.2s;
+  cursor: pointer;
+}
+.image-lightbox.active {
+  visibility: visible;
+  opacity: 1;
+}
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  border-radius: 8px;
+}
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.lightbox-close:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+/* ═══════════════ 医生团队样式（4位医生，手机端2列，紧凑布局） ═══════════════ */
+.team-section {
+  background: var(--cream);
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;  /* 手机端紧凑间距 */
+  margin-top: 32px;
+}
+@media (min-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+}
+.team-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  text-align: center;
+  padding-bottom: 16px; /* 紧凑 */
+}
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.team-img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display: block;
+}
+.team-name {
+  font-family: var(--font-serif);
+  font-size: 1rem;  /* 手机端稍小 */
+  font-weight: 600;
+  color: var(--teal-900);
+}
+@media (min-width: 768px) {
+  .team-name { font-size: 1.2rem; margin-top: 16px; }
+}
+.team-title {
+  font-size: 0.7rem;
+  color: var(--gold);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+}
+@media (min-width: 768px) {
+  .team-title { font-size: 0.75rem; margin-bottom: 12px; }
+}
+.team-bio-btn {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--teal-900);
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+.team-bio-btn:hover {
+  background: var(--gold-light);
+  border-color: var(--gold);
+  transform: scale(1.02);
+}
+@media (min-width: 768px) {
+  .team-bio-btn { padding: 8px 16px; font-size: 0.75rem; margin-bottom: 12px; }
+}
+
+/* 医生简介模态框 */
+.doctor-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(8px);
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.2s;
+}
+.doctor-modal.active {
+  visibility: visible;
+  opacity: 1;
+}
+.doctor-modal-content {
+  background: var(--white);
+  max-width: 500px;
+  width: 90%;
+  border-radius: var(--radius-xl);
+  padding: 28px 24px 32px;
+  position: relative;
+  text-align: center;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+.doctor-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--gray-500);
+  transition: color 0.2s;
+}
+.doctor-modal-close:hover { color: var(--teal-900); }
+.doctor-modal h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--teal-900);
+  margin-bottom: 16px;
+}
+.doctor-modal p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--gray-700);
+  margin-bottom: 24px;
+  text-align: left;
+}
+.doctor-modal-link {
+  display: inline-block;
+  background: var(--teal-900);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.doctor-modal-link:hover {
+  background: var(--teal-800);
+}
+
+/* ═══════════════ 延迟弹窗样式（英文） ═══════════════ */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(11, 43, 53, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-container {
+  background: var(--white);
+  max-width: 480px;
+  width: 90%;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  transform: scale(0.96);
+  transition: transform 0.25s cubic-bezier(0.21, 0.98, 0.35, 1.1);
+}
+.modal-overlay.active .modal-container {
+  transform: scale(1);
+}
+.modal-header {
+  padding: 20px 24px 8px 24px;
+  display: flex;
+  justify-content: flex-end;
+}
+.modal-close {
+  background: var(--gray-100);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.modal-close:hover { background: var(--gray-300); }
+.modal-body {
+  padding: 8px 28px 32px 28px;
+  text-align: center;
+}
+.modal-body h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--teal-900);
+  margin-bottom: 12px;
+}
+.modal-body p {
+  font-size: 1rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.modal-btn {
+  background: var(--teal-900);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s;
+}
+.modal-btn:hover { background: var(--teal-800); transform: translateY(-2px); }
+@media (max-width: 480px) {
+  .modal-body h3 { font-size: 1.5rem; }
+  .modal-body p { font-size: 0.9rem; }
+}
+
+/* ═══════════════ ANIMATIONS ═══════════════ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}
+</style>
+</head>
+<body>
+
+<!-- Mobile floating CTA -->
+<button class="float-cta" onclick="k2()">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
+  Free Consultation
+</button>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="#" class="nav-brand" id="navBrand">
+      <span class="nav-brand-icon">SJ</span>
+      Dr. Sarah Johnson
+    </a>
+    <ul class="nav-links">
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#cases">Results</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="javascript:void(0)" onclick="k2()" class="nav-cta">Free Consultation</a></li>
+    </ul>
+    <button class="mobile-btn" id="mobileBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-overlay" id="navOverlay">
+      <ul>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#cases">Results</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#privacy">Privacy &amp; Delivery</a></li>
+        <li><a href="javascript:void(0)" onclick="k2()" class="nav-overlay-cta">Free Consultation</a></li>
+      </ul>
+      <div class="nav-overlay-footer">Dr. Sarah Johnson · Board-Certified Dermatologist</div>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="hero">
+  <div class="hero-pattern"><span>MD</span></div>
+  <div class="container">
+    <div class="hero-image-wrap reveal">
+      <img src="img/1.png" alt="Dr. Sarah Johnson" loading="eager">
+      <div class="hero-image-badge"><span class="hero-image-badge-dot"></span><span>Available for online consultation</span></div>
+    </div>
+    <div class="reveal reveal-d1">
+      <div class="hero-badges">
+        <span class="hero-badge-pill gold">🏆 Dermatology Excellence Award 2026</span>
+        <span class="hero-badge-pill">UCLA Medical Center</span>
+        <span class="hero-badge-pill">Anti-Aging Research Institute</span>
+        <span class="hero-badge-pill">ASDS Member</span>
+      </div>
+      <h1>Meet <span class="gold">Dr. Sarah Johnson</span></h1>
+      <div class="hero-sub"><strong>Board-Certified Dermatologist</strong> · 15+ Years Clinical Experience<br>Former Chief Resident, UCLA Dermatology · ASDS &amp; IRSAD Fellow<br>Specializing in evidence-based, non-invasive anti-aging medicine</div>
+      <div class="hero-quote"><p>"After 15 years in dermatology, I've learned one thing: most anti-aging products treat the surface, not the cause. My approach is different — I start with your skin's biology, then build a protocol that actually works. No hype, no shortcuts. Just medicine."</p></div>
+      <div class="hero-actions">
+        <a href="javascript:void(0)" onclick="k2()" class="btn btn-light btn-large">Book a Free Assessment</a>
+      </div>
+      <div class="hero-trust-row">
+        <span class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> HIPAA Compliant</span>
+        <span class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 1,200+ Cases</span>
+        <span class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> 30-Day Guarantee</span>
+        <span class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Discreet Shipping</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CREDENTIALS ═══ -->
+<div class="credentials-bar">
+  <div class="credentials-track">
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg> Board Certified · American Board of Dermatology</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> UCLA Medical Center · Former Chief Resident</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> Anti-Aging Research Institute · IRSAD Fellow</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> ASDS</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg> Published in · JCD</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg> Board Certified · American Board of Dermatology</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> UCLA Medical Center · Former Chief Resident</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> Anti-Aging Research Institute · IRSAD Fellow</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> ASDS</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg> Published in · JCD</span>
+  </div>
+</div>
+
+<!-- ═══ EXPERTISE ═══ -->
+<section class="expertise" id="expertise">
+  <div class="container">
+    <div class="expertise-grid">
+      <div class="reveal">
+        <span class="section-label">Anti-Aging Expertise</span>
+        <h2 class="section-title">The Science Behind<br>Visible Results</h2>
+        <p class="section-subtitle" style="margin-bottom:1.2rem">My approach combines cutting-edge dermatological research with personalized care. Every protocol is backed by peer-reviewed studies and tailored to your unique skin biology.</p>
+        <ul class="expertise-list">
+          <li class="expertise-item"><span class="expertise-item-icon">🔬</span><div><h4>Advanced Peptide Therapy</h4><p>Clinically proven to stimulate collagen production by up to 170% in 12 weeks.</p></div></li>
+          <li class="expertise-item"><span class="expertise-item-icon">🧬</span><div><h4>AI-Powered Skin Analysis</h4><p>VISIA 3D imaging identifies aging patterns invisible to the naked eye.</p></div></li>
+          <li class="expertise-item"><span class="expertise-item-icon">⚕️</span><div><h4>Non-Invasive Regeneration</h4><p>No surgery. No downtime. Activate your skin's innate repair mechanisms.</p></div></li>
+          <li class="expertise-item"><span class="expertise-item-icon">📊</span><div><h4>Data-Driven Tracking</h4><p>Bi-weekly progress imaging with quantitative analysis. We measure what matters.</p></div></li>
+        </ul>
+        <div class="expertise-stats reveal reveal-d2">
+          <div class="expertise-stat"><div class="expertise-stat-num">15+</div><div class="expertise-stat-label">Years</div></div>
+          <div class="expertise-stat"><div class="expertise-stat-num">97%</div><div class="expertise-stat-label">Satisfaction</div></div>
+          <div class="expertise-stat"><div class="expertise-stat-num">1.2K+</div><div class="expertise-stat-label">Cases</div></div>
+        </div>
+      </div>
+      <div class="reveal reveal-d1">
+        <div class="expertise-visual">
+          <div class="expertise-visual-main"><img src="img/a11.jpg" alt="Lab" loading="lazy"></div>
+          <div class="expertise-visual-sub"><img src="https://una926m.online/cosmetic/img/m1.jpg" alt="Microscope" loading="lazy"></div>
+          <div class="expertise-visual-sub"><img src="img/m2.jpg" alt="Consultation" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRODUCTS (from introduce.txt) ═══ -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="section-label">Clean Science · Real Results</span>
+      <h2 class="section-title">Formulated With Purpose</h2>
+      <p class="section-subtitle">9 natural ingredients you can pronounce. 4 pure plant oils. Zero fillers. Every component is chosen for a reason.</p>
+    </div>
+    <div class="products-grid">
+      <!-- Day Face Serum -->
+      <div class="product-card reveal">
+        <img class="product-card-image" src="img/d2.jpg" alt="Day Face Serum" loading="lazy">
+        <div class="product-card-body">
+          <div class="product-step">Step 1</div>
+          <h3 class="product-name">Day Face Serum</h3>
+          <p class="product-desc">A lightweight, fast-absorbing serum powered by probiotic technology and 9 natural ingredients. Hydrates, repairs, and protects your skin barrier throughout the day.</p>
+          <div class="product-ingredients-title">What's inside &amp; why</div>
+          <ul class="product-ingredients">
+            <li class="product-ingredient"><span class="product-ingredient-icon">💧</span><div><strong>Glycerin</strong> — A humectant that draws moisture into the skin, keeping it hydrated and soft</div></li>
+            <li class="product-ingredient"><span class="product-ingredient-icon">🦠</span><div><strong>Probiotic Complex</strong> — Lactobacillus + Bacillus + Saccharomyces ferments balance the skin's microbiome for a healthy, radiant complexion</div></li>
+            <li class="product-ingredient"><span class="product-ingredient-icon">🧪</span><div><strong>Lactic Acid</strong> — Gently exfoliates, promoting a smoother, more radiant complexion</div></li>
+            <li class="product-ingredient"><span class="product-ingredient-icon">🌿</span><div><strong>Sodium Alginate</strong> — Seaweed-derived ingredient that hydrates and soothes the skin</div></li>
+            <li class="product-ingredient"><span class="product-ingredient-icon">💎</span><div><strong>Sodium Hyaluronate</strong> — Powerful moisture-binding ingredient that keeps skin plump and hydrated</div></li>
+            <li class="product-ingredient"><span class="product-ingredient-icon">🌰</span><div><strong>Squalane</strong> — Mimics the skin's natural oils, providing deep moisture without a greasy feel</div></li>
+          </ul>
+          <button onclick="k2()" class="product-cta">✨ Claim Your Free Sample</button>
+        </div>
+      </div>
+      <!-- Face Oil -->
+      <div class="product-card reveal reveal-d1">
+        <img class="product-card-image" src="img/d3.jpg" alt="Face Oil" loading="lazy">
+        <div class="product-card-body">
+          <div class="product-step">Step 2</div>
+          <h3 class="product-name">Face Oil</h3>
+          <p class="product-desc">A luxuriously lightweight oil that seals in moisture and delivers concentrated nutrients. Four pure plant-based oils work in synergy to rejuvenate and protect.</p>
+          <div class="product-ingredients-title">What's inside &amp; why</div>
+          <ul class="product-ingredients">
+            <li class="product-ingredient"><span class="product-ingredient-icon">🫒</span><div><strong>Olive Squalane</strong> — Unique molecule derived from olives; incredibly light, absorbs quickly, enhances elasticity and prevents moisture loss</div></li>
+            <li class="product-ingredient"><span class="product-ingredient-icon">🌴</span><div><strong>Marula Seed Oil</strong> — Rich in antioxidants and essential fatty acids, deeply nourishes and rejuvenates for outstanding hydration</div></li>
+            <li class="product-ingredient"><span class="product-ingredient-icon">🥜</span><div><strong>Argan Kernel Oil</strong> — Powerhouse of nourishment, infuses skin with essential fatty acids, softens and defends against aging</div></li>
+            <li class="product-ingredient"><span class="product-ingredient-icon">🍎</span><div><strong>Pomegranate Seed Oil</strong> — Known for regenerative properties, deeply penetrates to promote healing and improve elasticity</div></li>
+          </ul>
+          <button onclick="k2()" class="product-cta">✨ Claim Your Free Face Oil</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CASE STUDIES (card layout) 完整保留6个案例 ═══ -->
+<section class="cases" id="cases">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="section-label">Real Results</span>
+      <h2 class="section-title">Every Case Tells a Story</h2>
+      <p class="section-subtitle">Real patients, real conversations, real outcomes. No actors, no scripts — just the work we've done together.</p>
+    </div>
+    <div class="cases-grid">
+      <div class="case-card reveal"><div class="case-media" style="cursor:default;overflow:hidden;"><img src="img/a1.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);"><span class="case-play-label" style="font-size:.9rem;font-weight:600;">12-week transformation</span></div></div><div class="case-body"><div class="case-patient"><div><div class="case-patient-name">Jennifer K.</div><div class="case-patient-meta">London, ENG · 52</div></div></div><span class="case-tag">Deep Firming + Peptide Therapy</span><p class="case-quote">"Before Dr. Johnson, I'd given up on my skin. She didn't try to sell me anything — she analyzed my skin, told me what was genetic and what could change, and built a plan from there. Three months later, friends said I looked five years younger."</p><div class="case-results"><div class="case-result-item"><div class="case-result-value">12 wks</div><div class="case-result-label">Duration</div></div><div class="case-result-item"><div class="case-result-value">-65%</div><div class="case-result-label">Nasolabial folds</div></div><div class="case-result-item"><div class="case-result-value">+73%</div><div class="case-result-label">Firmness</div></div></div></div></div>
+      <div class="case-card reveal reveal-d1"><div class="case-media" style="cursor:default;overflow:hidden;"><img src="img/a3.jpg" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);"><span class="case-play-label" style="font-size:.9rem;font-weight:600;">16-week transformation</span></div></div><div class="case-body"><div class="case-patient"><div><div class="case-patient-name">Sarah M.</div><div class="case-patient-meta">Sydney, NSW  · 45</div></div></div><span class="case-tag">Pigment Correction + Collagen Activation</span><p class="case-quote">"The hyperpigmentation from my high-stress job had taken over my face. Dr. Johnson could tell me exactly what caused each spot. After six sessions, the spots I'd had for years were practically gone."</p><div class="case-results"><div class="case-result-item"><div class="case-result-value">16 wks</div><div class="case-result-label">Duration</div></div><div class="case-result-item"><div class="case-result-value">-67%</div><div class="case-result-label">Pigmentation</div></div><div class="case-result-item"><div class="case-result-value">+58%</div><div class="case-result-label">Evenness</div></div></div></div></div>
+      <div class="case-card reveal reveal-d2"><div class="case-media" style="cursor:default;overflow:hidden;"><img src="img/a5.jpg" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);"><span class="case-play-label" style="font-size:.9rem;font-weight:600;">24-week transformation</span></div></div><div class="case-body"><div class="case-patient"><div><div class="case-patient-name">Linda T.</div><div class="case-patient-meta">Toronto, ON · 49</div></div></div><span class="case-tag">Full-face Lifting + Texture Remodeling</span><p class="case-quote">"My jawline and nasolabial folds were making me look older than I felt. Dr. Johnson said I didn't need fillers or surgery — just a smart combination. She photographed me every two weeks and showed me the data. Six months later, I looked like a better version of myself."</p><div class="case-results"><div class="case-result-item"><div class="case-result-value">24 wks</div><div class="case-result-label">Duration</div></div><div class="case-result-item"><div class="case-result-value">+71%</div><div class="case-result-label">Elasticity</div></div><div class="case-result-item"><div class="case-result-value">-58%</div><div class="case-result-label">Wrinkle score</div></div></div></div></div>
+      <div class="case-card reveal reveal-d1"><div class="case-media" style="cursor:default;overflow:hidden;"><img src="img/a7.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);"><span class="case-play-label" style="font-size:.9rem;font-weight:600;">8-week transformation</span></div></div><div class="case-body"><div class="case-patient"><div><div class="case-patient-name">Amanda R.</div><div class="case-patient-meta">Chicago, IL · 47</div></div></div><span class="case-tag">Hydration Repair + Barrier Renewal</span><p class="case-quote">"My skin was so dehydrated and dull from years of stress. Dr. Johnson's protocol transformed my skin texture in just 8 weeks. The fine lines around my eyes are barely visible now and my complexion has never looked better."</p><div class="case-results"><div class="case-result-item"><div class="case-result-value">8 wks</div><div class="case-result-label">Duration</div></div><div class="case-result-item"><div class="case-result-value">+80%</div><div class="case-result-label">Hydration</div></div><div class="case-result-item"><div class="case-result-value">-55%</div><div class="case-result-label">Fine lines</div></div></div></div></div>
+      <div class="case-card reveal reveal-d2"><div class="case-media" style="cursor:default;overflow:hidden;"><img src="img/a9.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);"><span class="case-play-label" style="font-size:.9rem;font-weight:600;">12-week transformation</span></div></div><div class="case-body"><div class="case-patient"><div><div class="case-patient-name">Rachel G.</div><div class="case-patient-meta">Miami, FL · 46</div></div></div><span class="case-tag">Brightening + Even Tone Protocol</span><p class="case-quote">"I've struggled with uneven skin tone for years. Dr. Johnson's approach was completely different — she targeted the root cause instead of just treating symptoms. After 12 weeks my skin is brighter and more even than it's been in a decade."</p><div class="case-results"><div class="case-result-item"><div class="case-result-value">12 wks</div><div class="case-result-label">Duration</div></div><div class="case-result-item"><div class="case-result-value">+62%</div><div class="case-result-label">Brightness</div></div><div class="case-result-item"><div class="case-result-value">-59%</div><div class="case-result-label">Hyperpigmentation</div></div></div></div></div>
+      <div class="case-card reveal"><div class="case-media" style="cursor:default;overflow:hidden;"><img src="img/a11.jpg" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);"><span class="case-play-label" style="font-size:.9rem;font-weight:600;">20-week transformation</span></div></div><div class="case-body"><div class="case-patient"><div><div class="case-patient-name">Helen W.</div><div class="case-patient-meta">Seattle, WA · 53</div></div></div><span class="case-tag">Deep Firming + Collagen Restoration</span><p class="case-quote">"What impressed me most was Dr. Johnson's thoroughness. She tracked every single change with imaging and data. After 20 weeks, my skin is visibly firmer and the deep wrinkles on my forehead have softened dramatically."</p><div class="case-results"><div class="case-result-item"><div class="case-result-value">20 wks</div><div class="case-result-label">Duration</div></div><div class="case-result-item"><div class="case-result-value">+68%</div><div class="case-result-label">Firmness</div></div><div class="case-result-item"><div class="case-result-value">-61%</div><div class="case-result-label">Forehead lines</div></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS (原有6条评论，完整保留) ═══ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="section-label">Real Voices · Real Results</span>
+      <h2 class="section-title">What Patients Are Saying</h2>
+      <p class="section-subtitle">Unedited feedback from real patients. Every review comes directly from our records.</p>
+    </div>
+    <div class="testimonials-grid">
+      <!-- 原有6条评论完整保留，因篇幅仅展示关键结构，实际输出中全部存在 -->
+      <div class="t-card reveal"><div class="t-card-header"><div class="t-card-avatar"><div class="t-card-avatar-fig"><img src="img/b1.jpg" alt="Brianna Rose" loading="lazy"></div><div><div class="t-card-name">Brianna Rose</div><div class="t-card-meta">Miami, FL</div></div></div><div class="t-card-stars">★★★★★</div></div><p class="t-card-text">3rd day using it and the clarity and hydration is insane. I used a $400/bottle brand all last year and this puts them to shame for less than $150.</p><div class="t-card-footer"><span class="t-card-verified">✓ Verified Patient</span></div></div>
+      <div class="t-card reveal"><div class="t-card-header"><div class="t-card-avatar"><div class="t-card-avatar-fig"><img src="img/b2.jpg" alt="Ellen Meyer Wenker" loading="lazy"></div><div><div class="t-card-name">Ellen Meyer Wenker</div><div class="t-card-meta">Vancouver, BC</div></div></div><div class="t-card-stars">★★★★★</div></div><p class="t-card-text">What nobody mentions is the space and time you save! 6 drawers of stuff replaced by 6 canisters. Done in 5 minutes morning and night.</p><div class="t-card-footer"><span class="t-card-verified">✓ Verified Patient</span></div></div>
+      <div class="t-card reveal"><div class="t-card-header"><div class="t-card-avatar"><div class="t-card-avatar-fig"><img src="img/b3.jpg" alt="Chelsea Ariew" loading="lazy"></div><div><div class="t-card-name">Chelsea Ariew</div><div class="t-card-meta">Paris, IDF</div></div></div><div class="t-card-stars">★★★★★</div></div><p class="t-card-text">Less than a week and my dry Colorado mountain skin feels soft again! Nothing else has worked like this.</p><div class="t-card-footer"><span class="t-card-verified">✓ Verified Patient</span></div></div>
+      <div class="t-card reveal"><div class="t-card-header"><div class="t-card-avatar"><div class="t-card-avatar-fig"><img src="img/b4.jpg" alt="Carla Dumont" loading="lazy"></div><div><div class="t-card-name">Carla Dumont</div><div class="t-card-meta">New York, NY</div></div></div><div class="t-card-stars">★★★★★</div></div><p class="t-card-text">7 days in and these little jars of magic are just that. The tough lines have softened up. These balms are truly special.</p><div class="t-card-footer"><span class="t-card-verified">✓ Verified Patient</span></div></div>
+      <div class="t-card reveal"><div class="t-card-header"><div class="t-card-avatar"><div class="t-card-avatar-fig"><img src="img/b5.jpg" alt="Kelly Donovan" loading="lazy"></div><div><div class="t-card-name">Kelly Donovan</div><div class="t-card-meta">San Diego, CA</div></div></div><div class="t-card-stars">★★★★★</div></div><p class="t-card-text">I've been using this for a month and my skin has never looked better. The glow is real and I'm getting compliments everywhere I go.</p><div class="t-card-footer"><span class="t-card-verified">✓ Verified Patient</span></div></div>
+      <div class="t-card reveal"><div class="t-card-header"><div class="t-card-avatar"><div class="t-card-avatar-fig"><img src="img/b6.jpg" alt="Jessica M." loading="lazy"></div><div><div class="t-card-name">Jessica M.</div><div class="t-card-meta">Austin, TX</div></div></div><div class="t-card-stars">★★★★★</div></div><p class="t-card-text">After trying countless products that didn't work, this is the first one that actually delivered. My skin feels amazing and looks so much younger.</p><div class="t-card-footer"><span class="t-card-verified">✓ Verified Patient</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= 新增：独立轮播图板块 ========= -->
+<section class="image-carousel-section section">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="section-label">Visual Proof</span>
+      <h2 class="section-title">Real Transformations</h2>
+      <p class="section-subtitle">See the visible difference our patients have achieved — real results, unretouched.</p>
+    </div>
+    <div class="carousel-container">
+      <button class="carousel-btn carousel-prev" id="carouselPrev">‹</button>
+      <div class="carousel-wrapper">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide"><div class="carousel-slide-inner"><img class="carousel-img" src="img/c1.png" alt="Skin transformation" loading="lazy"><div class="carousel-content"><div class="carousel-stars">★★★★★</div><div class="carousel-text">"I'm 52 and my skin hasn't looked this firm in years."</div><div class="carousel-author">Patricia N.</div><div class="carousel-meta">Austin, TX · Verified Patient</div></div></div></div>
+          <div class="carousel-slide"><div class="carousel-slide-inner"><img class="carousel-img" src="img/c2.png" alt="Wrinkle reduction" loading="lazy"><div class="carousel-content"><div class="carousel-stars">★★★★★</div><div class="carousel-text">"The difference in my crow's feet is unbelievable."</div><div class="carousel-author">Diane M.</div><div class="carousel-meta">Portland, OR · Verified Patient</div></div></div></div>
+          <div class="carousel-slide"><div class="carousel-slide-inner"><img class="carousel-img" src="img/c3.png" alt="Skin radiance" loading="lazy"><div class="carousel-content"><div class="carousel-stars">★★★★★</div><div class="carousel-text">"Glow is real. After 8 weeks my friends asked what I changed."</div><div class="carousel-author">Elena R.</div><div class="carousel-meta">Denver, CO · Verified Patient</div></div></div></div>
+          <div class="carousel-slide"><div class="carousel-slide-inner"><img class="carousel-img" src="img/4c.jpg" alt="Fast discreet shipping" loading="lazy"><div class="carousel-content"><div class="carousel-stars">★★★★★</div><div class="carousel-text">"Arrived in 2 days in totally plain packaging. No one knows what's inside."</div><div class="carousel-author">Stephanie K.</div><div class="carousel-meta">Boston, MA · Verified Patient</div></div></div></div>
+        </div>
+      </div>
+      <button class="carousel-btn carousel-next" id="carouselNext">›</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </div>
+</section>
+<div class="image-lightbox" id="imageLightbox">
+  <div class="lightbox-close" id="lightboxClose">✕</div>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="Enlarged view">
+</div>
+
+<!-- ========= 医生团队板块（4位医生，带 View Bio 按钮，紧凑布局） ========= -->
+<section class="team-section section">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="section-label">Expert Team</span>
+      <h2 class="section-title">Board-Certified Dermatologists</h2>
+      <p class="section-subtitle">A collaborative network of leading specialists dedicated to evidence-based anti-aging medicine.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <img class="team-img" src="img/k1.jpg" alt="Dr. Marie Jhin" loading="lazy">
+        <div class="team-name">Dr. Marie Jhin</div>
+        <div class="team-title">Chief Medical Officer</div>
+        <button class="team-bio-btn" data-doctor="marie">View Bio</button>
+      </div>
+      <div class="team-card reveal reveal-d1">
+        <img class="team-img" src="img/k2.jpg" alt="Dr. Brandon Kirsch" loading="lazy">
+        <div class="team-name">Dr. Brandon Kirsch</div>
+        <div class="team-title">Chief Science Officer</div>
+        <button class="team-bio-btn" data-doctor="brandon">View Bio</button>
+      </div>
+      <div class="team-card reveal reveal-d2">
+        <img class="team-img" src="img/k3.jpg" alt="Dr. Ravi Ubriani" loading="lazy">
+        <div class="team-name">Dr. Ravi Ubriani</div>
+        <div class="team-title">Medical Director</div>
+        <button class="team-bio-btn" data-doctor="ravi">View Bio</button>
+      </div>
+      <div class="team-card reveal reveal-d3">
+        <img class="team-img" src="img/k4.jpg" alt="Dr. Dana Correale" loading="lazy">
+        <div class="team-name">Dr. Dana Correale</div>
+        <div class="team-title">Board-Certified Dermatologist</div>
+        <button class="team-bio-btn" data-doctor="dana">View Website</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 医生简介模态框 (通用) -->
+<div class="doctor-modal" id="doctorModal">
+  <div class="doctor-modal-content">
+    <div class="doctor-modal-close" id="doctorModalClose">&times;</div>
+    <h3 id="doctorModalName"></h3>
+    <p id="doctorModalBio"></p>
+    <a href="#" id="doctorModalLink" class="doctor-modal-link" target="_blank" rel="noopener noreferrer">Visit Website →</a>
+  </div>
+</div>
+
+<!-- ═══ PROCESS ═══ -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="section-label">How It Works</span>
+      <h2 class="section-title">Four Steps to Visible Change</h2>
+      <p class="section-subtitle">From your first consultation to your final result — every stage is transparent and backed by medical rigor.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-card reveal"><div class="process-num">01</div><h4>Free Online Assessment</h4><p>Complete a skin health questionnaire. Our team responds within 24 hours.</p></div>
+      <div class="process-card reveal reveal-d1"><div class="process-num">02</div><h4>AI Skin Analysis</h4><p>VISIA 3D imaging maps your skin's aging patterns at the microscopic level.</p></div>
+      <div class="process-card reveal reveal-d2"><div class="process-num">03</div><h4>Custom Protocol</h4><p>Personalized plan by Dr. Johnson with clear timelines and expected outcomes.</p></div>
+      <div class="process-card reveal reveal-d3"><div class="process-num">04</div><h4>Track &amp; Optimize</h4><p>Bi-weekly progress imaging. Protocols adjust dynamically to your skin's response.</p></div>
+    </div>
+    <div class="process-guarantee reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span><strong>Risk-Free Guarantee:</strong> Every protocol includes a 30-day evaluation period. Not satisfied? We'll adjust or refund.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRIVACY ═══ -->
+<section class="privacy" id="privacy">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="section-label">Privacy &amp; Delivery</span>
+      <h2 class="section-title">Your Privacy Is Our Highest Priority</h2>
+      <p class="section-subtitle">From first consultation to delivery, every detail is protected by medical-grade privacy standards.</p>
+    </div>
+    <div class="privacy-grid">
+      <ul class="privacy-list">
+        <li class="privacy-item reveal"><span class="privacy-item-icon">🔒</span><div><h4>HIPAA-Compliant Protection</h4><p>All personal health information is encrypted to HIPAA standards. No data shared without consent.</p></div></li>
+        <li class="privacy-item reveal reveal-d1"><span class="privacy-item-icon">📦</span><div><h4>Discreet, Anonymous Packaging</h4><p>Plain, unbranded packaging. No logos, product names, or medical markings.</p></div></li>
+        <li class="privacy-item reveal reveal-d2"><span class="privacy-item-icon">🚚</span><div><h4>Fast Shipping · US &amp; International</h4><p>FedEx Priority 2-4 days US. International 5-10 days. Full tracking with signature.</p></div></li>
+        <li class="privacy-item reveal reveal-d3"><span class="privacy-item-icon">🔄</span><div><h4>30-Day Money-Back Guarantee</h4><p>Not seeing results? Full refund or protocol adjustment. No questions asked.</p></div></li>
+      </ul>
+      <div class="privacy-media reveal">
+        <img src="img/h1.jpg" alt="Secure packaging" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">&copy; 2026 Dr. Sarah Johnson Skin Medicine. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- ═══ 延迟弹窗 (英文，仅显示一次) ═══ -->
+<div class="modal-overlay" id="delayModal">
+  <div class="modal-container">
+    <div class="modal-header"><button class="modal-close" id="closeModalBtn">✕</button></div>
+    <div class="modal-body">
+      <h3>✨ Exclusive Anti-Aging Assessment ✨</h3>
+      <p>Dr. Sarah Johnson offers a <strong>30-minute free online consultation</strong> to analyze your skin's aging factors and provide medical-grade advice.<br>Limited slots available. Claim yours now.</p>
+      <button class="modal-btn" id="confirmModalBtn">Get Free Assessment →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// 全局函数 k2
+function k2() {
+  window.location.href = 'https://www.qq.com';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // reveal 动画
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+  }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // 导航滚动
+  const nav = document.getElementById('nav');
+  const brand = document.getElementById('navBrand');
+  const updateNav = () => {
+    const scrolled = window.pageYOffset > 60;
+    if (nav) nav.classList.toggle('scrolled', scrolled);
+    if (brand) brand.style.color = scrolled ? 'var(--teal-900)' : 'white';
+  };
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+
+  // 移动端菜单
+  const mobileBtn = document.getElementById('mobileBtn');
+  const overlay = document.getElementById('navOverlay');
+  if (mobileBtn && overlay) {
+    mobileBtn.addEventListener('click', () => {
+      overlay.classList.toggle('open');
+      mobileBtn.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    });
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        overlay.classList.remove('open');
+        mobileBtn.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+    });
+    overlay.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        overlay.classList.remove('open');
+        mobileBtn.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      });
+    });
+  }
+
+  // 平滑滚动
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId !== '#') {
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          window.scrollTo({ top: targetEl.offsetTop - 64, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+
+  // 轮播图逻辑
+  const track = document.getElementById('carouselTrack');
+  const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
+  const dotsContainer = document.getElementById('carouselDots');
+  let currentIndex = 0;
+  let slideCount = slides.length;
+  let autoInterval;
+
+  function updateCarousel() {
+    if (!track) return;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    if (dotsContainer) {
+      const dots = dotsContainer.querySelectorAll('.dot');
+      dots.forEach((dot, idx) => { if (idx === currentIndex) dot.classList.add('active'); else dot.classList.remove('active'); });
+    }
+  }
+  function createDots() {
+    if (!dotsContainer) return;
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < slideCount; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === currentIndex) dot.classList.add('active');
+      dot.addEventListener('click', () => { currentIndex = i; updateCarousel(); resetAutoPlay(); });
+      dotsContainer.appendChild(dot);
+    }
+  }
+  function nextSlide() { currentIndex = (currentIndex + 1) % slideCount; updateCarousel(); }
+  function prevSlide() { currentIndex = (currentIndex - 1 + slideCount) % slideCount; updateCarousel(); }
+  function resetAutoPlay() { if (autoInterval) clearInterval(autoInterval); autoInterval = setInterval(nextSlide, 6000); }
+  if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoPlay(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoPlay(); });
+  createDots();
+  resetAutoPlay();
+
+  // 触摸滑动
+  let startX = 0;
+  track?.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; });
+  track?.addEventListener('touchend', (e) => {
+    if (!startX) return;
+    const endX = e.changedTouches[0].clientX;
+    if (endX < startX - 50) { nextSlide(); resetAutoPlay(); }
+    if (endX > startX + 50) { prevSlide(); resetAutoPlay(); }
+    startX = 0;
+  });
+
+  // 图片放大
+  const lightbox = document.getElementById('imageLightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+  document.querySelectorAll('.carousel-img').forEach(img => {
+    img.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (lightboxImg && img.src) { lightboxImg.src = img.src; lightbox?.classList.add('active'); }
+    });
+  });
+  const closeLightbox = () => { lightbox?.classList.remove('active'); };
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightbox) lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lightbox?.classList.contains('active')) closeLightbox(); });
+
+  // 医生简介模态框数据
+  const doctorData = {
+    marie: {
+      name: "Dr. Marie Jhin",
+      bio: "Board-certified dermatologist and Chief Medical Officer at Musely. Graduated from Wellesley College and Weill Cornell Medical College, former Stanford University instructor for over a decade. Expert in medical and aesthetic dermatology, especially Asian and ethnic skin care. Founder of Premier Aesthetic Dermatology and author of 'Asian Beauty Secrets' and 'K-Beauty Secrets'.",
+      link: "http://www.premier-dermatology.com/"
+    },
+    brandon: {
+      name: "Dr. Brandon Kirsch",
+      bio: "Board-certified dermatologist and Chief Science Officer at Musely. Medical degree from Brown University, internship at Mayo Clinic, dermatology residency at UNC. Former Assistant Clinical Professor of Dermatology at University of Colorado. Expert in medical dermatology, tech-driven healthcare innovation, and personalized prescription skincare.",
+      link: "https://www.kirschderm.com/dr-brandon-kirsch/"
+    },
+    ravi: {
+      name: "Dr. Ravi Ubriani",
+      bio: "Board-certified dermatologist and Medical Director at Musely. Over 20 years of experience, earned medical degree from University of Pennsylvania Perelman School of Medicine. Recognized for expertise in comprehensive dermatologic care and helping patients access effective, physician-guided treatments.",
+      link: "https://health.usnews.com/doctors/ravi-ubriani-329604"
+    },
+    dana: {
+      name: "Dr. Dana Correale",
+      bio: "Board-certified dermatologist dedicated to providing exceptional medical and cosmetic dermatology care. Specializes in comprehensive skin health and evidence-based treatments.",
+      link: "http://www.cheshiredermatology.com/staff.html"
+    }
+  };
+
+  const doctorModal = document.getElementById('doctorModal');
+  const doctorModalName = document.getElementById('doctorModalName');
+  const doctorModalBio = document.getElementById('doctorModalBio');
+  const doctorModalLink = document.getElementById('doctorModalLink');
+  const doctorModalCloseBtn = document.getElementById('doctorModalClose');
+
+  function showDoctorModal(doctorKey) {
+    const data = doctorData[doctorKey];
+    if (!data) return;
+    doctorModalName.innerText = data.name;
+    doctorModalBio.innerText = data.bio;
+    doctorModalLink.href = data.link;
+    doctorModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDoctorModal() {
+    doctorModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.team-bio-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const doctor = btn.getAttribute('data-doctor');
+      if (doctor) showDoctorModal(doctor);
+    });
+  });
+  if (doctorModalCloseBtn) doctorModalCloseBtn.addEventListener('click', closeDoctorModal);
+  if (doctorModal) doctorModal.addEventListener('click', (e) => { if (e.target === doctorModal) closeDoctorModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && doctorModal?.classList.contains('active')) closeDoctorModal(); });
+
+  // 延迟弹窗（仅一次）
+  if (!sessionStorage.getItem('modalShown')) {
+    setTimeout(() => {
+      const modalEl = document.getElementById('delayModal');
+      const closeModal = () => {
+        if (modalEl) { modalEl.classList.remove('active'); document.body.style.overflow = ''; }
+      };
+      const showModal = () => {
+        if (!modalEl) return;
+        modalEl.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        sessionStorage.setItem('modalShown', 'true');
+      };
+      showModal();
+      const closeBtn = document.getElementById('closeModalBtn');
+      const confirmBtn = document.getElementById('confirmModalBtn');
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (confirmBtn) confirmBtn.addEventListener('click', () => { k2(); closeModal(); });
+      if (modalEl) modalEl.addEventListener('click', (e) => { if (e.target === modalEl) closeModal(); });
+    }, 5000);
+  }
+});
+</script>
+</body>
+</html>
